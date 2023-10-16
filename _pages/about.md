@@ -19,13 +19,13 @@ Feel free to reach out to me at xinyul2 [at] andrew [dot] cmu [dot] edu if you a
 Publications
 ------
 
-### Automated Assessment of Cardiovascular Sufficiency Using Non-Invasive Physiological Data
+**Automated Assessment of Cardiovascular Sufficiency Using Non-Invasive Physiological Data**
 __Xinyu Li__, Michael R. Pinsky, and Artur Dubrawski. Sensors 22, no. 3 (2022): 1024.  [[Paper](https://www.mdpi.com/1424-8220/22/3/1024)]
 
-### Deep Survival Machines: Fully Parametric Survival Regression and Representation Learning for Censored Data with Competing Risks
+**Deep Survival Machines: Fully Parametric Survival Regression and Representation Learning for Censored Data with Competing Risks**
 Chirag Nagpal, __Xinyu Li__, and Artur Dubrawski. IEEE Journal of Biomedical and Health Informatics 25, no. 8 (2021): 3163–75. [[Paper](https://arxiv.org/pdf/2003.01176.pdf)]
 
-### Dynamically Personalized Detection of Hemorrhage
+**Dynamically Personalized Detection of Hemorrhage**
 Chirag Nagpal, __Xinyu Li__, Michael R. Pinsky, and Artur Dubrawski. Machine Learning for Healthcare Conference (MLHC), 2019. [[Paper](https://proceedings.mlr.press/v106/nagpal19a/nagpal19a.pdf)]
 
 ### Leveraging Routine Pre-Operative Blood Draws to Predict Hemorrhagic Shock During Surgery
