@@ -18,3 +18,7 @@ Feel free to reach out to me at xinyul2 [at] andrew [dot] cmu [dot] edu if you a
 
 Publications
 ------
+
+### Automated Assessment of Cardiovascular Sufficiency Using Non-Invasive Physiological Data
+__Xinyu Li__, Michael R. Pinsky, and Artur Dubrawski  
+Sensors 22, no. 3 (2022): 1024.  [[Paper](https://www.mdpi.com/1424-8220/22/3/1024)]
