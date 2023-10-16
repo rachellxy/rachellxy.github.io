@@ -28,5 +28,5 @@ Chirag Nagpal, __Xinyu Li__, and Artur Dubrawski. IEEE Journal of Biomedical and
 **Dynamically Personalized Detection of Hemorrhage**
 Chirag Nagpal, __Xinyu Li__, Michael R. Pinsky, and Artur Dubrawski. Machine Learning for Healthcare Conference (MLHC), 2019. [[Paper](https://proceedings.mlr.press/v106/nagpal19a/nagpal19a.pdf)]
 
-### Leveraging Routine Pre-Operative Blood Draws to Predict Hemorrhagic Shock During Surgery
+**Leveraging Routine Pre-Operative Blood Draws to Predict Hemorrhagic Shock During Surgery**
 __Xinyu Li__, Michael R. Pinsky, Gilles Clermont, and Artur Dubrawski. NeurIPS Machine Learning for Health (ML4H) Workshop, 2018.
