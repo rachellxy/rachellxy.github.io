@@ -18,7 +18,6 @@ Feel free to reach out to me at xinyul2 [at] andrew [dot] cmu [dot] edu if you a
 
 Publications and Preprints
 ------
-
 ### Personalized Language Modeling from Personalized Human Feedback
 __Xinyu Li__, Zachary Lipton, and Liu Leqi. arXiv, 2024. [[Paper](https://arxiv.org/abs/2402.05133)]
 
