@@ -16,8 +16,11 @@ My research interests lie in building trustworthy AI agents that interact with h
 Feel free to reach out to me at xinyul2 [at] andrew [dot] cmu [dot] edu if you are interested in my research and would like to collaborate!
 
 
-Publications
+Publications and Preprints
 ------
+
+### Personalized Language Modeling from Personalized Human Feedback
+__Xinyu Li__, Zachary C. Lipton, and Liu Leqi. arXiv, 2024. [[Paper](https://arxiv.org/abs/2402.05133)]
 
 ### Automated Assessment of Cardiovascular Sufficiency Using Non-Invasive Physiological Data
 __Xinyu Li__, Michael R. Pinsky, and Artur Dubrawski. Sensors 22, no. 3 (2022): 1024.  [[Paper](https://www.mdpi.com/1424-8220/22/3/1024)]
