@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+date: 2024-10-10
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+Our work, <a href="https://arxiv.org/abs/2402.05133">Personalized Language Modeling from Personalized Human Feedback</a>, is accepted to <a href="https://adaptive-foundation-models.org/index.html">NeurIPS 2024 Workshop on Adaptive Foundation Models</a>.
