@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: xinyul2 [at] andrew [dot] cmu [dot] edu # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Email\: xinyul2 [at] andrew [dot] cmu [dot] edu # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
