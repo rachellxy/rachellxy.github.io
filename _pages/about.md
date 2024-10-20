@@ -8,9 +8,9 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>xinyul2 [at] andrew [dot] cmu [dot] edu</p>
-    <p>CMU Robotics Institute</p>
+  # more_info: >
+  #   <p>xinyul2 [at] andrew [dot] cmu [dot] edu</p>
+  #   <p>CMU Robotics Institute</p>
 
 news: false # includes a list of news items
 latest_posts: false
