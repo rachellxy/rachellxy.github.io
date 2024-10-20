@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-10
+date: 2024-06
 inline: true
 related_posts: false
 ---
 
-Our <a href="https://arxiv.org/abs/2402.05133">Personalized Language Modeling from Personalized Human Feedback</a> work is accepted to <a href="https://adaptive-foundation-models.org/index.html">NeurIPS 2024 Workshop on Adaptive Foundation Models</a>.
+I give an invited talk on our <a href="https://arxiv.org/abs/2402.05133">Personalized RLHF</a> work at Mila RLHF reading group.
