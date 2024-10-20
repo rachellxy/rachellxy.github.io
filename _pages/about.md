@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 李昕雨 # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: 李昕雨 <br> Email: xinyul2 [at] andrew [dot] cmu [dot] edu # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
@@ -13,7 +13,6 @@ profile:
   #   <p>CMU Robotics Institute</p>
 
 news: false # includes a list of news items
-latest_posts: false
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
