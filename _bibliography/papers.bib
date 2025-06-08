@@ -1,12 +1,24 @@
 ---
 ---
 
+@article{cai2025timeseriesgym,
+  abbr={arXiv},
+  title={TimeSeriesGym: A Scalable Benchmark for (Time Series) Machine Learning Engineering Agents},
+  author={Cai, Yifu and Li, Xinyu and Goswami, Mononito and Wili{\'n}ski, Micha{\l} and Welter, Gus and Dubrawski, Artur},
+  abstract={We introduce TimeSeriesGym, a scalable benchmarking framework for evaluating Artificial Intelligence (AI) agents on time series machine learning engineering challenges. Existing benchmarks lack scalability, focus narrowly on model building in well-defined settings, and evaluate only a limited set of research artifacts (e.g., CSV submission files). To make AI agent benchmarking more relevant to the practice of machine learning engineering, our framework scales along two critical dimensions. First, recognizing that effective ML engineering requires a range of diverse skills, TimeSeriesGym incorporates challenges from diverse sources spanning multiple domains and tasks. We design challenges to evaluate both isolated capabilities (including data handling, understanding research repositories, and code translation) and their combinations, and rather than addressing each challenge independently, we develop tools that support designing multiple challenges at scale. Second, we implement evaluation mechanisms for multiple research artifacts, including submission files, code, and models, using both precise numeric measures and more flexible LLM-based evaluation approaches. This dual strategy balances objective assessment with contextual judgment. Although our initial focus is on time series applications, our framework can be readily extended to other data modalities, broadly enhancing the comprehensiveness and practical utility of agentic AI evaluation. We open-source our benchmarking framework to facilitate future research on the ML engineering capabilities of AI agents.},
+  journal={arXiv preprint arXiv:2505.13291},
+  year={2025},
+  html={https://arxiv.org/abs/2505.13291},
+  code={https://github.com/moment-timeseries-foundation-model/TimeSeriesGym},
+  selected={true},
+}
+
 @article{li2024personalized,
   abbr={arXiv},
   title={Personalized language modeling from personalized human feedback},
   author={Li, Xinyu and Zhou, Ruiyang and Lipton, Zachary C and Leqi, Liu},
   abstract={Personalized large language models (LLMs) are designed to tailor responses to individual user preferences. While Reinforcement Learning from Human Feedback (RLHF) is a commonly used framework for aligning LLMs with human preferences, vanilla RLHF assumes that all human preferences share the same distribution, preventing fine-tuned LLMs from generating personalized content when user preferences are diverse. In this work, we propose Personalized-RLHF (P-RLHF), an efficient framework that utilizes a lightweight user model to capture individual user preferences and jointly learns the user model and the personalized LLM from human feedback. P-RLHF exhibits the following three characteristics: (1) It enables an LLM to generate personalized content and scale efficiently with growing number of users. (2) It handles both explicit user preferences described as textual input and implicit user preferences encoded in the feedback data. (3) It eliminates the need for users to fully articulate their preferences, which are normally needed for prompting LLMs to generate personalized content yet are often impractical to obtain in real-world scenarios. Our experimental results show that personalized LLMs trained using P-RLHF generate responses that are more closely aligned with individual user preferences, outperforming vanilla, non-personalized RLHF and prompting-based personalization approaches across different tasks. We opensource our code at https://github.com/HumainLab/Personalized_RLHF.},
-  journal={arXiv preprint arXiv:2402.05133},
+  journal={NeurIPS 2024 Workshop on Adaptive Foundation Models},
   year={2024},
   html={https://arxiv.org/abs/2402.05133},
   code={https://github.com/HumainLab/Personalized_RLHF},
