@@ -23,6 +23,6 @@ My research focuses on the post-training of foundation models (LLMs) and LLM age
 <ul>
   <li>Benchmarking LLM agents on machine learning engineering tasks (<a href="https://arxiv.org/abs/2505.13291">TimeSeriesGym</a>)</li>
   <li>Developing agents that automate machine learning engineering workflows</li>
-  <li>Developing methods for multi-tasking and personalization of LLMs, including model merging, personalized federated fine-tuning, and personalized RLHF (<a href="https://arxiv.org/abs/2402.05133">P-RLHF</a>)</li>
+  <li>Developing methods for multi-tasking and personalization of LLMs, including model merging, personalized federated fine-tuning, and <a href="https://arxiv.org/abs/2402.05133">personalized RLHF</a></li>
 </ul>
 Feel free to reach out to me if you are interested in my research and would like to collaborate!
