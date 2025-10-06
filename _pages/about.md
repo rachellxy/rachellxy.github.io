@@ -19,10 +19,10 @@ social: true # includes social icons at the bottom of the page
 
 Hello! I am a Ph.D. student at the [Auton Lab](https://autonlab.org/) in the School of Computer Science at [Carnegie Mellon University](https://www.cmu.edu/), advised by Prof. [Artur Dubrawski](https://www.ri.cmu.edu/ri-faculty/artur-w-dubrawski/). Prior to pursuing my Ph.D., I obtained a B.S. in Computer Science (Information Security) from Shanghai Jiao Tong University, China and a Master of Information Systems Management (MISM) from Carnegie Mellon University.
 
-My research focuses on the post-training of foundation models (LLMs) and LLM agents. Recently, I have been working on: 
+My research focuses on LLM-based agents. Recently, I have been working on: 
 <ul>
-  <li>Benchmarking LLM agents on machine learning engineering tasks (<a href="https://arxiv.org/abs/2505.13291">TimeSeriesGym</a>)</li>
-  <li>Developing agents that automate machine learning engineering workflows</li>
-  <li>Developing methods for multi-tasking and personalization of LLMs, including model merging, personalized federated fine-tuning, and <a href="https://arxiv.org/abs/2402.05133">personalized RLHF</a></li>
+  <li>Benchmarking LLM agents on machine learning engineering tasks (<a href="https://arxiv.org/abs/2505.13291">TimeSeriesGym</a>) </li>
+  <li>Developing agents that automate end-to-end machine learning engineering workflows </li>
+  <li>Improving backbone LLMs for agentic applications through multi-tasking and personalization (<a href="https://arxiv.org/abs/2402.05133">P-RLHF</a>) </li>
 </ul>
 Feel free to reach out to me if you are interested in my research and would like to collaborate!
