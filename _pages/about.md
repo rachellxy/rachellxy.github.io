@@ -23,6 +23,6 @@ My research focuses on LLM-based agents. Recently, I have been working on:
 <ul>
   <li>Benchmarking LLM agents on machine learning engineering tasks (<a href="https://arxiv.org/abs/2505.13291">TimeSeriesGym</a>) </li>
   <li>Developing agents that automate end-to-end machine learning engineering workflows </li>
-  <li>Improving backbone LLMs for agentic applications through multi-tasking and personalization (<a href="https://arxiv.org/abs/2402.05133">P-RLHF</a>) </li>
+  <li>Improving LLMs for agentic use through multi-tasking and personalization (<a href="https://arxiv.org/abs/2402.05133">P-RLHF</a>) </li>
 </ul>
 Feel free to reach out to me if you are interested in my research and would like to collaborate!
