@@ -9,7 +9,7 @@ entries:
   - title: "HERMES: Learning Contextual Reasoning Unlocks Test-Time Scaling"
     url: /assets/html/hermes.html
     read_time: 10 min read
-    date: e.g. 2026-09-30
+    date: 2026-09-30
 ---
 
 <style>
