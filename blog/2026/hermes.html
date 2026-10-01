@@ -875,7 +875,7 @@ table.compare th { text-align: center; }
     what information to carry between them. We call this ability <em>contextual reasoning</em>. Existing harnesses prescribe
     these decisions; <strong>Hermes</strong> shifts them to the model. Capable models exploit this flexibility to scale with
     extra compute, while small open models initially struggle. <strong>Hermes-Learn</strong> closes the gap, inducing adaptive
-    strategies that vary with the problem and the progress of reasoning. The gains generalise across benchmarks and models,
+    strategies that vary with the problem and the progress of reasoning. The gains generalize across benchmarks and models,
     extrapolate beyond the compute seen in training, and transfer to other test-time scaling methods.</p>
   </div>
 
@@ -932,7 +932,7 @@ table.compare th { text-align: center; }
     <li><a href="#results">RQ1 · Results</a></li>
     <li><a href="#behavior">RQ2 · Behaviour</a></li>
     <li><a href="#ablations">RQ3 · Ablations</a></li>
-    <li><a href="#generalize">RQ4 · Generalisation</a></li>
+    <li><a href="#generalize">RQ4 · Generalization</a></li>
     <li><a href="#cite">Citation</a></li>
   </ol>
 </nav>
@@ -1273,10 +1273,10 @@ table.compare th { text-align: center; }
   </div>
 </section>
 
-<!-- ================================================================ 7 GENERALISATION -->
+<!-- ================================================================ 7 GENERALIZATION -->
 <section id="generalize" class="reveal">
   <p class="sec-num rq">RQ4</p>
-  <h2>It generalises beyond its training setting</h2>
+  <h2>It generalizes beyond its training setting</h2>
   <p>Training used one setting: Qwen3-4B with <i>B</i> = 3, <i>D</i> = 1, <i>W</i> = 1. We test three ways of leaving it.</p>
 
   <figure class="fig" id="fig-knobs">
@@ -3209,7 +3209,7 @@ HERMES.rollouts = [
     });
   }
 
-  /* ---------------------------------------------------------------- RQ4 generalisation */
+  /* ---------------------------------------------------------------- RQ4 generalization */
   function generalize() {
     const def = H.knobs[0];
     const rows = [];
