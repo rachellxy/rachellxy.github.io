@@ -7,7 +7,7 @@ nav_order: 3
 # Add new entries at the top. read_time and date are optional.
 entries:
   - title: "HERMES: Learning Contextual Reasoning Unlocks Test-Time Scaling"
-    url: /assets/html/hermes.html
+    url: /blog/2026/hermes
     read_time: 10 min read
     date: 2026-09-30
 ---
