@@ -60,6 +60,11 @@ on:
 permissions:
   contents: write
 
+# shared with preview.yml so the two never push to gh-pages at the same time
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
@@ -93,3 +98,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site
+          # keep the redesign preview (published by preview.yml) at /preview
+          clean-exclude: |
+            preview
