@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://rachellxy.github.io/preview/sitemap.xml
