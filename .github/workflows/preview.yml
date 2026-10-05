@@ -1,0 +1,54 @@
+name: Deploy redesign preview
+
+# Builds the `redesign` branch and publishes it to gh-pages under /preview,
+# i.e. https://rachellxy.github.io/preview/. The live site (built from master
+# by deploy.yml) is untouched. Delete this file when merging redesign into master.
+
+on:
+  push:
+    branches:
+      - redesign
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2"
+          bundler-cache: true
+      - name: Update _config.yml ⚙️
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          commitChange: false
+          valueFile: "_config.yml"
+          propertyPath: "giscus.repo"
+          value: ${{ github.repository }}
+      - name: Install and Build 🔧
+        run: |
+          pip3 install --upgrade jupyter
+          export JEKYLL_ENV=production
+          bundle exec jekyll build --baseurl /preview
+      - name: Purge unused CSS 🧹
+        run: |
+          npm install -g purgecss
+          purgecss -c purgecss.config.js
+      - name: Hide preview from search engines 🙈
+        run: |
+          find _site -name '*.html' -exec sed -i '0,/<head>/s//<head><meta name="robots" content="noindex, nofollow">/' {} +
+      - name: Deploy preview 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          target-folder: preview
