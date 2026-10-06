@@ -1,0 +1,88 @@
+# Selected publications, newest first. Rendered by _includes/publications.md.
+# Wrap your own name in <strong>…</strong>; <sup>*</sup> marks equal contribution.
+main:
+  - title: "Hermes: Learning Contextual Reasoning Unlocks Test-Time Scaling"
+    year: 2026
+    authors: "<strong>Xinyu Li<sup>*</sup></strong>, Mononito Goswami<sup>*</sup>, Hao Liu, Nikos Kanakaris, Langlin Huang, Prithwish Jana, Patrick Blöbaum, Purak Jain <span class=\"eq-contrib\">(<sup>*</sup>Equal contribution)</span>"
+    conference_short: "arXiv 2026"
+    conference: "arXiv preprint arXiv:2609.38332, 2026."
+    pdf: "https://arxiv.org/pdf/2609.38332"
+    page: "./blog/2026/hermes.html"
+    abstract: |
+      Test-time scaling improves model performance by allocating additional compute during inference. Using this compute effectively across multiple context windows requires deciding how to allocate fresh contexts and what information to carry between them. We call a model's ability to make these decisions contextual reasoning. Existing approaches largely prescribe these decisions through their harness; we instead shift them to the model. We introduce 1) Hermes, a family of simple, configurable harnesses that progressively varies model control over context allocation and reuse, and 2) Hermes-Learn, a two-stage framework for learning these capabilities. We find that capable models can exploit this flexibility to scale with additional inference-time compute, while smaller open-source models initially struggle to do so. Training with Hermes-Learn closes this gap, inducing adaptive contextual reasoning strategies that vary with both the problem and the progress of reasoning. These gains generalize across benchmarks and models, extrapolate beyond the inference-time compute seen during training, and transfer to complementary test-time scaling methods beyond Hermes.
+    bibtex: |
+      @article{li2026hermes,
+          title   = {Hermes: Learning Contextual Reasoning Unlocks Test-Time Scaling},
+          author  = {Li, Xinyu and Goswami, Mononito and Liu, Hao and Kanakaris, Nikos and Huang, Langlin and Jana, Prithwish and Bl{\"o}baum, Patrick and Jain, Purak},
+          journal = {arXiv preprint arXiv:2609.38332},
+          year    = {2026}
+      }
+
+  - title: "Notes to Self: Can LLMs Benefit from Experiential Abstractions?"
+    year: 2026
+    authors: "Chang Liu, <strong>Xinyu Li</strong>, Artur Dubrawski"
+    conference_short: "EMNLP 2026 Findings"
+    conference: "Findings of the Association for Computational Linguistics: <strong>EMNLP</strong>, 2026."
+    pdf: "https://arxiv.org/pdf/2607.20372"
+    abstract: |
+      Humans distill experience into reusable abstractions, e.g., strategies and cautionary reminders, and apply them to gradually solve problems more effectively. We study whether Large Language Models (LLMs) can similarly benefit from such experiential abstractions. From LLMs' solution traces on the MATH training set, a stronger teacher or the LLMs themselves extract natural-language abstractions into a retrievable library. We explore two usage modes: (1) inference-time retrieval and (2) reinforcement learning (RL) with abstraction-augmented training prompts. Experiential abstractions improve LLM performance on mathematical and logical reasoning benchmarks. Self-extracted abstractions match teacher-extracted ones, and our abstraction usage framework can transfer to other datasets and models. These findings suggest LLMs can extract and apply experiential abstractions much as humans leverage distilled experience.
+    bibtex: |
+      @inproceedings{liu2026notes,
+          title     = {Notes to Self: Can LLMs Benefit from Experiential Abstractions?},
+          author    = {Liu, Chang and Li, Xinyu and Dubrawski, Artur},
+          booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
+          year      = {2026}
+      }
+
+  - title: "From Aggregation to Guidance: Strategies for Personalized Federated Fine-Tuning of Foundation Models"
+    year: 2025
+    authors: "Mikołaj Piórczyński, Wojciech Łapacz, <strong>Xinyu Li</strong>, Chang Liu, Abby Turner, Artur Dubrawski"
+    conference_short: "UniReps 2025"
+    conference: "UniReps: 3rd Edition of the Workshop on Unifying Representations in Neural Models, 2025."
+    pdf: "https://openreview.net/pdf?id=wdYl0agN49"
+    abstract: |
+      Federated learning (FL) enables collaborative fine-tuning of pretrained foundation models in privacy-sensitive settings without directly sharing raw data. Personalized federated learning (PFL) further addresses client-side heterogeneity by learning models tailored to each client's local tasks while still benefiting from cross-client collaboration. In this work, we study strategies to improve the effectiveness of personalized federated fine-tuning of Large Language Models (LLMs) using LoRA. On the server side, we explore advanced aggregation strategies that go beyond simple parameter averaging, drawing on model merging techniques to construct a robust global model. On the client side, we investigate different ways to leverage the global model to guide local learning, including hard initialization, parameter regularization, and function-space guidance via knowledge distillation, and propose a similarity-based adjustment strategy to further improve local learning. Empirical results on the Super NaturalInstructions dataset demonstrate that careful design of both server- and client-side strategies has the potential to improve PFL performance, providing insights for developing more effective PFL learning frameworks for fine-tuning LLMs for heterogeneous client tasks.
+    bibtex: |
+      @inproceedings{piorczynski2025aggregation,
+          title     = {From Aggregation to Guidance: Strategies for Personalized Federated Fine-Tuning of Foundation Models},
+          author    = {Pi{\'o}rczy{\'n}ski, Miko{\l}aj and {\L}apacz, Wojciech and Li, Xinyu and Liu, Chang and Turner, Abby and Dubrawski, Artur},
+          booktitle = {UniReps: 3rd Edition of the Workshop on Unifying Representations in Neural Models},
+          year      = {2025},
+          url       = {https://openreview.net/forum?id=wdYl0agN49}
+      }
+
+  - title: "TimeSeriesGym: A Scalable Benchmark for (Time Series) Machine Learning Engineering Agents"
+    year: 2025
+    authors: "Yifu Cai<sup>*</sup>, <strong>Xinyu Li<sup>*</sup></strong>, Mononito Goswami<sup>*</sup>, Michał Wiliński<sup>*</sup>, Gus Welter, Artur Dubrawski <span class=\"eq-contrib\">(<sup>*</sup>Equal contribution)</span>"
+    conference_short: "arXiv 2025"
+    conference: "arXiv preprint arXiv:2505.13291, 2025."
+    pdf: "https://arxiv.org/pdf/2505.13291"
+    code: "https://github.com/moment-timeseries-foundation-model/TimeSeriesGym"
+    badge: "https://img.shields.io/github/stars/moment-timeseries-foundation-model/TimeSeriesGym?style=social&label=Code+Stars"
+    abstract: |
+      We introduce TimeSeriesGym, a scalable benchmarking framework for evaluating Artificial Intelligence (AI) agents on time series machine learning engineering challenges. Existing benchmarks lack scalability, focus narrowly on model building in well-defined settings, and evaluate only a limited set of research artifacts (e.g., CSV submission files). To make AI agent benchmarking more relevant to the practice of machine learning engineering, our framework scales along two critical dimensions. First, recognizing that effective ML engineering requires a range of diverse skills, TimeSeriesGym incorporates challenges from diverse sources spanning multiple domains and tasks. We design challenges to evaluate both isolated capabilities (including data handling, understanding research repositories, and code translation) and their combinations, and rather than addressing each challenge independently, we develop tools that support designing multiple challenges at scale. Second, we implement evaluation mechanisms for multiple research artifacts, including submission files, code, and models, using both precise numeric measures and more flexible LLM-based evaluation approaches. This dual strategy balances objective assessment with contextual judgment. Although our initial focus is on time series applications, our framework can be readily extended to other data modalities, broadly enhancing the comprehensiveness and practical utility of agentic AI evaluation. We open-source our benchmarking framework to facilitate future research on the ML engineering capabilities of AI agents.
+    bibtex: |
+      @article{cai2025timeseriesgym,
+          title   = {TimeSeriesGym: A Scalable Benchmark for (Time Series) Machine Learning Engineering Agents},
+          author  = {Cai, Yifu and Li, Xinyu and Goswami, Mononito and Wili{\'n}ski, Micha{\l} and Welter, Gus and Dubrawski, Artur},
+          journal = {arXiv preprint arXiv:2505.13291},
+          year    = {2025}
+      }
+
+  - title: "Personalized Language Modeling from Personalized Human Feedback"
+    year: 2024
+    authors: "<strong>Xinyu Li</strong>, Ruiyang Zhou, Zachary C. Lipton, Liu Leqi"
+    conference_short: "NeurIPS 2024 AFM"
+    conference: "NeurIPS 2024 Workshop on Adaptive Foundation Models, 2024."
+    pdf: "https://arxiv.org/pdf/2402.05133"
+    code: "https://github.com/HumainLab/Personalized_RLHF"
+    badge: "https://img.shields.io/github/stars/HumainLab/Personalized_RLHF?style=social&label=Code+Stars"
+    abstract: |
+      Personalized large language models (LLMs) are designed to tailor responses to individual user preferences. While Reinforcement Learning from Human Feedback (RLHF) is a commonly used framework for aligning LLMs with human preferences, vanilla RLHF assumes that all human preferences share the same distribution, preventing fine-tuned LLMs from generating personalized content when user preferences are diverse. In this work, we propose Personalized-RLHF (P-RLHF), an efficient framework that utilizes a lightweight user model to capture individual user preferences and jointly learns the user model and the personalized LLM from human feedback. P-RLHF exhibits the following three characteristics: (1) It enables an LLM to generate personalized content and scale efficiently with growing number of users. (2) It handles both explicit user preferences described as textual input and implicit user preferences encoded in the feedback data. (3) It eliminates the need for users to fully articulate their preferences, which are normally needed for prompting LLMs to generate personalized content yet are often impractical to obtain in real-world scenarios. Our experimental results show that personalized LLMs trained using P-RLHF generate responses that are more closely aligned with individual user preferences, outperforming vanilla, non-personalized RLHF and prompting-based personalization approaches across different tasks. We opensource our code at https://github.com/HumainLab/Personalized_RLHF.
+    bibtex: |
+      @article{li2024personalized,
+          title   = {Personalized Language Modeling from Personalized Human Feedback},
+          author  = {Li, Xinyu and Zhou, Ruiyang and Lipton, Zachary C and Leqi, Liu},
+          journal = {arXiv preprint arXiv:2402.05133},
+          year    = {2024}
+      }

@@ -1,0 +1,1450 @@
+---
+---
+
+@import "minimal-light";
+
+/* ==========================================================================
+   Quiet academic palette: near-white ground, gray ink, light hairlines,
+   one muted warm-brown accent (inspired by minimalist academic homepages)
+   ========================================================================== */
+
+/* Fonts (Space Grotesk / Inter / JetBrains Mono) are loaded via <link> in the layout head. */
+
+:root {
+  --ink: #111827;
+  --ink-soft: #4b5563;
+  --ink-faint: #9ca3af;
+  --line: #e5e7eb;
+  --acc: #9a5b3c;
+  --acc-2: #7c4527;
+  --grad: #9a5b3c;
+  --glass: rgba(255, 255, 255, 0.85);
+  --glass-border: #e5e7eb;
+  --card: #ffffff;
+  --shadow: 0 1px 2px rgba(17, 24, 39, .04), 0 8px 24px -12px rgba(17, 24, 39, .08);
+  --shadow-lg: 0 2px 4px rgba(17, 24, 39, .05), 0 16px 40px -16px rgba(17, 24, 39, .12);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) { --ink: #ededed;
+    --ink-soft: #b3b0ab;
+    --ink-faint: #85817b;
+    --line: #2e2b27;
+    --acc: #c89472;
+    --acc-2: #d8a888;
+    --grad: #c89472;
+    --glass: rgba(22, 21, 19, 0.85);
+    --glass-border: #2e2b27;
+    --card: #1b1917;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .25), 0 12px 32px -12px rgba(0, 0, 0, .5);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .3), 0 24px 48px -16px rgba(0, 0, 0, .6); }
+}
+html.theme-dark { --ink: #ededed;
+    --ink-soft: #b3b0ab;
+    --ink-faint: #85817b;
+    --line: #2e2b27;
+    --acc: #c89472;
+    --acc-2: #d8a888;
+    --grad: #c89472;
+    --glass: rgba(22, 21, 19, 0.85);
+    --glass-border: #2e2b27;
+    --card: #1b1917;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .25), 0 12px 32px -12px rgba(0, 0, 0, .5);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .3), 0 24px 48px -16px rgba(0, 0, 0, .6); }
+
+
+/* ---------- base ---------- */
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; color-scheme: light; }
+
+/* keep Safari's native UI (scrollbars, form controls) in sync with the
+   manual theme toggle, not just the OS setting */
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) { color-scheme: dark; }
+}
+html.theme-dark { color-scheme: dark; }
+html.theme-light { color-scheme: light; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #faf9f7;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) body { background: #14120f; color: var(--ink); }
+}
+html.theme-dark body { background: #14120f; color: var(--ink); }
+
+
+h1, h2, h3, .brand, .name { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+
+email { font-family: 'JetBrains Mono', 'Ubuntu Mono', monospace; }
+
+/* Section headings: ink + short accent underline */
+section h2 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--acc);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) section h2, html:not(.theme-light) h1, html:not(.theme-light) h3, html:not(.theme-light) h4, html:not(.theme-light) h5, html:not(.theme-light) h6 { color: var(--ink); }
+}
+html.theme-dark section h2, html.theme-dark h1, html.theme-dark h3, html.theme-dark h4, html.theme-dark h5, html.theme-dark h6 { color: var(--ink); }
+
+
+a { color: var(--acc); transition: color .15s ease; }
+a:hover { color: var(--acc-2); }
+
+/* content links: a thin underline slides in from the left on hover */
+section p a:not(.btn),
+section li a:not(.btn) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color .15s ease, background-size .25s ease;
+}
+
+section p a:not(.btn):hover,
+section li a:not(.btn):hover {
+  background-size: 100% 1px;
+  text-decoration: none;
+}
+
+strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- quiet ambient background (light mode only) ---------- */
+
+/* the old blob markup stays in the layout but is inert */
+.bg-blobs { display: none; }
+
+/* Graph-paper dot grid: quiet but clearly visible, completely static */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(17, 24, 39, 0.10) 1px, transparent 1.4px);
+  background-size: 24px 24px;
+}
+
+/* Static warm wash above the top edge — depth without any motion */
+body::after {
+  content: '';
+  position: fixed;
+  left: 50%;
+  top: -340px;
+  z-index: -2;
+  width: 1200px;
+  height: 620px;
+  margin-left: -600px;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(154, 91, 60, 0.06), rgba(233, 226, 212, 0.30) 55%, transparent 100%);
+}
+
+/* Cursor spotlight (cursorlight.js drives --mx/--my): inside a soft circle
+   around the pointer the grid dots re-render in the terracotta accent with
+   a faint warm halo. Idle page = zero motion. */
+.cursor-light {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  --cl-dot: rgba(154, 91, 60, 0.42);
+  --cl-halo: rgba(154, 91, 60, 0.05);
+  background:
+    radial-gradient(300px circle at var(--mx, 50%) var(--my, -20%), var(--cl-halo), transparent 70%),
+    radial-gradient(var(--cl-dot) 1px, transparent 1.4px) 0 0 / 24px 24px;
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx, 50%) var(--my, -20%), #000 20%, transparent 100%);
+  mask-image: radial-gradient(240px circle at var(--mx, 50%) var(--my, -20%), #000 20%, transparent 100%);
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+/* dark mode: no grid or wash (clean black), but the spotlight stays —
+   warm dots surfacing out of the dark */
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) body::before,
+  html:not(.theme-light) body::after { display: none; }
+  html:not(.theme-light) .cursor-light {
+    --cl-dot: rgba(200, 148, 114, 0.30);
+    --cl-halo: rgba(200, 148, 114, 0.04);
+  }
+}
+html.theme-dark body::before,
+html.theme-dark body::after { display: none; }
+html.theme-dark .cursor-light {
+  --cl-dot: rgba(200, 148, 114, 0.30);
+  --cl-halo: rgba(200, 148, 114, 0.04);
+}
+
+
+/* ---------- glassy fixed top bar with tabs ---------- */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: var(--glass);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.topbar .brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: .02em;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topbar .brand:hover { color: var(--ink); }
+
+.topbar .brand-dot {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Horizontal tabs (scrollspy toggles .active + slides the pill) */
+.site-nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  margin-left: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+/* sliding indicator behind the active tab: a single soft accent tint */
+.site-nav .nav-pill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(154, 91, 60, 0.10);
+  opacity: 0;
+  transition: left .35s cubic-bezier(.3, .7, .3, 1),
+              width .35s cubic-bezier(.3, .7, .3, 1),
+              opacity .25s ease;
+  pointer-events: none;
+}
+
+.site-nav::-webkit-scrollbar { display: none; }
+
+.site-nav a {
+  position: relative;
+  z-index: 1;
+  color: var(--ink-soft);
+  font-size: .9rem;
+  font-weight: 500;
+  text-decoration: none;
+  /* balanced padding so the pill has similar breathing room on all sides */
+  padding: 9px 13px;
+  border-left: none;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+  background: rgba(148, 163, 184, 0.14);
+  border-left: none;
+}
+
+.site-nav a.active {
+  color: var(--acc);
+  font-weight: 600;
+  border-left: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .site-nav .nav-pill { background: rgba(200, 148, 114, 0.14); }
+}
+html.theme-dark .site-nav .nav-pill { background: rgba(200, 148, 114, 0.14); }
+
+
+/* Day / night toggle: minimal borderless line icon */
+.theme-toggle {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink-faint);
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.theme-toggle svg {
+  display: block;
+  transition: transform .3s ease;
+}
+
+.theme-toggle:hover svg { transform: rotate(20deg); }
+
+/* Clear the fixed top bar */
+section { padding-top: 5.4em; }
+
+/* ---------- sidebar as a plain card ---------- */
+
+header {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  margin-top: 6.2em;
+  padding: 26px 12px 22px;
+  width: 232px;
+}
+
+/* Avatar with a quiet hairline ring */
+.wrapper header .image.avatar img {
+  height: auto;   /* keep the intrinsic width/height attrs from forcing 600px */
+  padding: 3px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 22px -12px rgba(17, 24, 39, 0.25);
+}
+
+header position { color: var(--ink-soft); }
+autocolor { color: var(--ink-soft); }
+email { color: var(--ink-faint); }
+
+.social-icons a {
+  color: var(--acc) !important;
+  transition: transform .2s ease, color .2s ease;
+}
+
+.social-icons a:hover {
+  background-color: transparent;
+  color: var(--acc-2) !important;
+  transform: scale(1.18);
+}
+
+/* the old fixed bottom-left footer clashes with the card sidebar */
+footer { display: none; }
+
+/* ---------- content column ---------- */
+
+section {
+  color: var(--ink-soft);
+}
+
+section p, section li { color: var(--ink-soft); }
+
+/* custom accent-diamond bullets (echoes the timeline dots) */
+section ul { list-style: none; }
+
+section ul > li {
+  position: relative;
+  padding-left: 1.3em;
+  margin-bottom: 0.35em;
+}
+
+section ul > li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: var(--acc);
+  box-shadow: 0 0 0 2.5px rgba(154, 91, 60, 0.10);
+  transition: box-shadow .25s ease;
+}
+
+section ul > li:hover::before {
+  box-shadow: 0 0 0 4px rgba(154, 91, 60, 0.16);
+}
+
+/* back-to-top: floating glass button, bottom right */
+.back-to-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  color: var(--acc);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease, box-shadow .2s ease,
+    color .2s ease, background .2s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--acc);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -8px rgba(154, 91, 60, 0.45);
+}
+
+/* reading progress line at the very top of the viewport (progress.js) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 70;
+  background: var(--acc);
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+/* footer: crab + copyright line */
+.crab {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+/* little speech bubble on hover */
+.crab::after {
+  content: 'Clawd says hi!';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 7px);
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: var(--card);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.crab:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Konami code easter egg: Clawd scuttles across the screen (konami.js) */
+.konami-crab {
+  position: fixed;
+  left: -90px;
+  bottom: 12px;
+  height: 56px;
+  z-index: 80;
+  pointer-events: none;
+  animation: crab-cross 7s linear forwards,
+             crab-bob .3s ease-in-out infinite alternate;
+}
+
+@keyframes crab-cross {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 180px)); }
+}
+
+@keyframes crab-bob {
+  from { margin-bottom: 0; }
+  to   { margin-bottom: 7px; }
+}
+
+.crab img {
+  height: 32px;
+  width: auto;
+  display: inline-block;
+  vertical-align: -11px;
+}
+
+.crab:hover {
+  animation: crab-scuttle 0.7s ease-in-out infinite;
+}
+
+@keyframes crab-scuttle {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-4px) rotate(-6deg); }
+  75%      { transform: translateX(4px) rotate(6deg); }
+}
+
+/* visitor count: same chip language as the news dates, inline with the
+   copyright line */
+.visitor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(154, 91, 60, 0.08);
+  color: var(--acc);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.visitor-pill svg { flex: 0 0 auto; }
+
+.visitor-count { font-variant-numeric: tabular-nums; }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .visitor-pill { background: rgba(200, 148, 114, 0.14); color: #c89472; }
+}
+html.theme-dark .visitor-pill { background: rgba(200, 148, 114, 0.14); color: #c89472; }
+
+.site-copyright {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+  color: var(--ink-faint);
+}
+
+.site-copyright small { font-size: 0.78rem; }
+
+/* News dates as small rounded chips */
+.news-date {
+  display: inline-block;
+  background: rgba(154, 91, 60, 0.08);
+  color: var(--acc);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 1.5px 9px;
+  border-radius: 7px;
+  margin-right: 5px;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .news-date { background: rgba(200, 148, 114, 0.14); color: #c89472; }
+}
+html.theme-dark .news-date { background: rgba(200, 148, 114, 0.14); color: #c89472; }
+
+/* ---------- about me: education cards + callout ---------- */
+
+.edu-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 4px 0 18px;
+}
+
+@media (max-width: 760px) {
+  .edu-cards { grid-template-columns: 1fr; }
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* grid stretches cards to equal height; the head grows and centers its
+   content vertically, so the date/advisor rows bottom-align across cards */
+.edu-head {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.edu-logo {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 4px;
+}
+
+.edu-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.edu-head-text { min-width: 0; }
+.edu-degree { color: var(--ink); font-weight: 600; font-size: 0.92rem; line-height: 1.3; }
+
+a.edu-school {
+  display: inline-block;
+  color: var(--acc);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-top: 2px;
+  text-decoration: none;
+}
+
+a.edu-school:hover { text-decoration: underline; }
+
+.edu-note { color: var(--ink-faint); font-size: 0.79rem; margin-top: 12px; line-height: 1.55; }
+.edu-note .edu-line { margin-top: 2px; }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .edu-logo { border-color: #3a3733; }
+}
+html.theme-dark .edu-logo { border-color: #3a3733; }
+
+
+/* contact line: plain sentence with a gradient "reach out" link */
+.about-contact {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 0 0 22px;
+}
+
+.contact-link {
+  position: relative;
+  font-weight: 600;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s cubic-bezier(.3, .7, .3, 1);
+}
+
+.contact-link:hover::after { transform: scaleX(1); }
+
+/* wave on load (and again on hover) */
+.wave {
+  display: inline-block;
+  transform-origin: 72% 72%;
+  animation: wave-hand 1.8s ease .6s 1;
+}
+
+.wave:hover { animation: wave-hand 1.8s ease infinite; }
+
+@keyframes wave-hand {
+  0%   { transform: rotate(0); }
+  10%  { transform: rotate(16deg); }
+  20%  { transform: rotate(-9deg); }
+  30%  { transform: rotate(16deg); }
+  40%  { transform: rotate(-6deg); }
+  50%  { transform: rotate(12deg); }
+  60%  { transform: rotate(0); }
+  100% { transform: rotate(0); }
+}
+
+/* ---------- research interests: typewriter line ---------- */
+
+.ri-typing {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: -4px 0 18px;
+  min-height: 1.6em;   /* avoid layout shift while typing */
+}
+
+.ri-typed {
+  /* solid accent fallback for browsers without background-clip: text */
+  color: var(--acc);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .ri-typed {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.ri-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: -0.16em;
+  background: var(--acc);
+  border-radius: 2px;
+  animation: cursor-blink 1s steps(2, start) infinite;
+}
+
+@keyframes cursor-blink {
+  to { visibility: hidden; }
+}
+
+/* inline emphasis: the same gradient ink as the "reach out" link */
+.hl {
+  /* solid accent fallback for browsers without background-clip: text */
+  color: var(--acc);
+  font-weight: 600;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hl {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* ---------- research interests: three axes ---------- */
+
+.ri-lead {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+
+.ri-axes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 22px;
+}
+
+.ri-axis {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 15px 18px;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.ri-axis:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* gradient step number; the solid accent is the fallback for browsers
+   without background-clip: text */
+.ri-num {
+  flex: 0 0 auto;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--acc);
+  opacity: 0.85;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .ri-num {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.ri-axis-body { min-width: 0; flex: 1; }
+
+/* Inter like the other card titles (exp-role, edu-degree, pub titles);
+   only headings and the big numerals carry Space Grotesk */
+.ri-axis-title {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
+.ri-axis-text {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-top: 3px;
+}
+
+.ri-papers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+a.ri-paper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  background: rgba(154, 91, 60, 0.07);
+  border: 1px solid rgba(154, 91, 60, 0.18);
+  border-radius: 999px;
+  padding: 2.5px 11px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--acc);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+a.ri-paper:hover {
+  background: rgba(154, 91, 60, 0.13);
+  border-color: rgba(154, 91, 60, 0.40);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.ri-venue {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+a.ri-paper:hover .ri-venue { color: var(--ink-soft); }
+
+@media (max-width: 620px) {
+  .ri-axis { gap: 12px; padding: 14px 15px; }
+  .ri-num { font-size: 1.3rem; }
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) a.ri-paper {
+    background: rgba(200, 148, 114, 0.12);
+    border-color: rgba(200, 148, 114, 0.24);
+    color: #c89472;
+  }
+  html:not(.theme-light) a.ri-paper:hover {
+    background: rgba(200, 148, 114, 0.20);
+    border-color: rgba(200, 148, 114, 0.45);
+  }
+}
+html.theme-dark a.ri-paper {
+  background: rgba(200, 148, 114, 0.12);
+  border-color: rgba(200, 148, 114, 0.24);
+  color: #c89472;
+}
+html.theme-dark a.ri-paper:hover {
+  background: rgba(200, 148, 114, 0.20);
+  border-color: rgba(200, 148, 114, 0.45);
+}
+
+/* ---------- publications: glass cards ---------- */
+
+.wrapper .publications ol.bibliography li {
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 16px 14px;
+  margin-bottom: 1.1rem;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.wrapper .publications ol.bibliography li:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* the entry that was jumped to — from a Research Interests pill or a year pip */
+.wrapper .publications ol.bibliography li:target {
+  border-color: rgba(154, 91, 60, 0.55);
+  box-shadow: 0 0 0 3px rgba(154, 91, 60, 0.14), var(--shadow-lg);
+}
+
+.wrapper .publications ol.bibliography li .teaser {
+  border-radius: 12px;
+  box-shadow: 0 8px 22px -10px rgba(15, 23, 42, 0.35);
+  transition: transform .3s ease;
+}
+
+/* gentle zoom on the figure when the card is hovered */
+.wrapper .publications ol.bibliography li:hover .teaser {
+  transform: scale(1.025);
+}
+
+/* Conference badge: quiet accent pill on the teaser image */
+.wrapper .publications ol.bibliography li .abbr abbr {
+  background: var(--acc);
+  border-radius: 999px;
+  box-shadow: 0 6px 16px -6px rgba(17, 24, 39, 0.35);
+  top: 22px;
+  left: 28px;
+}
+
+/* Breathing room between the rows of each entry */
+.wrapper .publications ol.bibliography li .title {
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.wrapper .publications ol.bibliography li .title a { color: var(--ink); }
+.wrapper .publications ol.bibliography li .title a:hover { color: var(--acc); }
+
+.wrapper .publications ol.bibliography li .author {
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.wrapper .publications ol.bibliography li .author sup {
+  font-size: 0.7em;
+  line-height: 0;
+}
+
+.wrapper .publications ol.bibliography li .author .eq-contrib {
+  color: var(--ink-faint);
+  font-size: 0.88em;
+}
+
+.wrapper .publications ol.bibliography li .periodical,
+.wrapper .publications ol.bibliography li .place,
+.wrapper .publications ol.bibliography li .notes {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-faint);
+  margin-bottom: 3px;
+}
+
+.wrapper .publications ol.bibliography li .links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* Link buttons: rounded pills */
+.wrapper .publications ol.bibliography li .links a.btn {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 2px 12px;
+  transition: color .18s ease, border-color .18s ease, background-color .18s ease;
+}
+
+.wrapper .publications ol.bibliography li .links a.btn:hover {
+  color: var(--acc);
+  border-color: var(--acc);
+  background: rgba(154, 91, 60, 0.06);
+}
+
+/* Year jump index: a plain row of year links */
+.year-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 1.1rem 0 0.55rem;
+}
+
+/* same glass-pill button as the News "Show more" toggle */
+.year-jump a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  padding: 5px 16px;
+  transition: all .25s ease;
+}
+
+.year-jump a:hover {
+  color: #fff;
+  background: var(--acc);
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -8px rgba(154, 91, 60, 0.45);
+  text-decoration: none;
+}
+
+
+/* Year divider */
+.wrapper .publications h2.year {
+  color: var(--ink-faint);
+  border-top: 1px dashed var(--line);
+  padding-top: 0.35rem;
+  padding-bottom: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.15rem;
+}
+
+.wrapper .publications h2.year::after { display: none; }
+
+/* the first divider sits right under the year pills — no extra gap */
+.wrapper .publications ol.bibliography > h2.year:first-child { margin-top: 0; }
+
+/* ---------- legacy pinning / wrapping fixes (unchanged) ---------- */
+
+.wrapper section ul {
+  margin-top: -0.25rem;
+  padding-left: 0.1em;
+}
+
+.wrapper .publications ol.bibliography li .pub-row .abbr {
+  flex: 0 0 auto;
+}
+
+.wrapper .publications ol.bibliography li .pub-row .col-sm-9 {
+  min-width: 0;
+}
+
+/* ---------- abstract / bibtex panels ---------- */
+
+.publications ol.bibliography li .bibtex {
+  position: relative;
+  margin-top: 0.4rem;
+}
+
+.publications ol.bibliography li .bibtex pre {
+  background: #f6f8fa;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 12px 12px 14px;
+  margin: 6px 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.publications ol.bibliography li .copy-bib {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  z-index: 1;
+  font-size: 0.68rem;
+  padding: 3px 11px;
+  border: 1px solid var(--acc);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--acc);
+  cursor: pointer;
+  transition: all .18s ease;
+}
+
+.publications ol.bibliography li .copy-bib:hover {
+  color: #fff;
+  background: var(--acc);
+  border-color: transparent;
+}
+
+.publications ol.bibliography li .abstract p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: justify;
+  margin: 8px 4px;
+}
+
+.wrapper .publications ol.bibliography li div.abstract.hidden,
+.wrapper .publications ol.bibliography li div.abstract.hidden.open {
+  border: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .publications ol.bibliography li .bibtex pre, html:not(.theme-light) .publications ol.bibliography li .copy-bib { background: #1c1a18;
+    border-color: #3a3733; }
+  html:not(.theme-light) .publications ol.bibliography li .copy-bib { color: #c89472; }
+}
+html.theme-dark .publications ol.bibliography li .bibtex pre, html.theme-dark .publications ol.bibliography li .copy-bib { background: #1c1a18;
+    border-color: #3a3733; }
+html.theme-dark .publications ol.bibliography li .copy-bib { color: #c89472; }
+
+
+/* ---------- experiences: vertical timeline with company logos ---------- */
+
+.exp-timeline {
+  position: relative;
+  margin: 0 0 24px;
+  padding-left: 30px;
+}
+
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.exp-item:last-child { margin-bottom: 0; }
+
+.exp-dot {
+  position: absolute;
+  left: -30px;
+  top: 22px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--acc);
+  border: 3px solid #faf9f7;
+  box-shadow: 0 0 0 2px rgba(154, 91, 60, 0.30);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.exp-item:hover .exp-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 3px rgba(154, 91, 60, 0.35);
+}
+
+.exp-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.exp-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.exp-role { color: var(--ink); font-weight: 600; }
+.exp-org { color: var(--acc); font-size: 0.92rem; font-weight: 500; margin-top: 1px; }
+
+.exp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
+}
+
+.exp-chips .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(148, 163, 184, 0.13);
+  border-radius: 999px;
+  padding: 2.5px 11px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.exp-chips .chip a { color: var(--acc); }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .exp-chips .chip { background: rgba(148, 163, 184, 0.18); }
+}
+html.theme-dark .exp-chips .chip { background: rgba(148, 163, 184, 0.18); }
+
+
+.exp-logo-chip {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.exp-logo-chip img { height: 24px; width: auto; display: block; }
+
+/* per-logo sizing so both lockups feel the same visual weight */
+.exp-logo-chip img[alt="TikTok"] { height: 32px; }
+.exp-logo-chip img[alt="Tencent AI Lab"] { height: 36px; }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light) .exp-dot { border-color: #14120f; }
+  html:not(.theme-light) .exp-logo-chip { border-color: #3a3733; }
+}
+html.theme-dark .exp-dot { border-color: #14120f; }
+html.theme-dark .exp-logo-chip { border-color: #3a3733; }
+
+
+/* ---------- news "show more" ---------- */
+
+details.news-more {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+details.news-more > summary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.6rem;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  list-style: none;
+  user-select: none;
+  transition: all .25s ease;
+}
+
+details.news-more > summary::-webkit-details-marker { display: none; }
+details.news-more > summary::before { content: none; }
+
+details.news-more > summary:hover {
+  color: #fff;
+  background: var(--acc);
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -8px rgba(154, 91, 60, 0.45);
+}
+
+details.news-more .nm-chevron {
+  display: inline-flex;
+  transition: transform .3s ease;
+}
+
+details.news-more[open] .nm-chevron { transform: rotate(180deg); }
+
+details.news-more .nm-less { display: none; }
+details.news-more[open] .nm-more { display: none; }
+details.news-more[open] .nm-less { display: inline; }
+
+/* expanded items slide in one by one */
+@keyframes nm-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+details.news-more[open] > ul > li {
+  animation: nm-in .45s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+details.news-more[open] > ul > li:nth-child(1) { animation-delay: .03s; }
+details.news-more[open] > ul > li:nth-child(2) { animation-delay: .12s; }
+details.news-more[open] > ul > li:nth-child(3) { animation-delay: .21s; }
+details.news-more[open] > ul > li:nth-child(4) { animation-delay: .30s; }
+details.news-more[open] > ul > li:nth-child(5) { animation-delay: .39s; }
+
+/* ---------- scroll reveal ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .rv { opacity: 0; }
+
+  .rv.rv-in {
+    opacity: 1;
+    /* keyframe animation (no fill-forwards) so hover transforms
+       on cards keep working after the entrance finishes */
+    animation: rv-up .65s cubic-bezier(.2, .7, .3, 1);
+  }
+}
+
+@keyframes rv-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- neutral scrollbar ---------- */
+
+/* Firefox fallback (scrollbar-width/scrollbar-color) lives in
+   publications.css: the @supports selector() syntax it needs is not
+   parseable by the old Ruby Sass used by GitHub Pages, so it must stay
+   in a plain .css file that Jekyll copies verbatim. */
+
+/* WebKit / Blink */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+  border: 2px solid #f3f4f6;   /* inset look against the track */
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: #9ca3af;
+  border-width: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.theme-light)::-webkit-scrollbar-track, html:not(.theme-light) ::-webkit-scrollbar-track { background: #1c1a18; }
+  html:not(.theme-light)::-webkit-scrollbar-thumb, html:not(.theme-light) ::-webkit-scrollbar-thumb { background: #45413c; border-color: #1c1a18; }
+}
+html.theme-dark::-webkit-scrollbar-track, html.theme-dark ::-webkit-scrollbar-track { background: #1c1a18; }
+html.theme-dark::-webkit-scrollbar-thumb, html.theme-dark ::-webkit-scrollbar-thumb { background: #45413c; border-color: #1c1a18; }
+
+
+/* ---------- responsive ---------- */
+
+@media print, screen and (max-width: 1120px) {
+  header {
+    position: static;
+    width: auto;
+    margin: 5.2em auto 0;
+    max-width: 480px;
+    padding: 24px 16px;
+  }
+
+  section {
+    padding-top: 1.6em;
+    border: none;
+  }
+
+  .topbar-inner { padding: 10px 16px; gap: 14px; }
+}
+
+@media print, screen and (max-width: 480px) {
+  .topbar .brand { display: none; }
+  .site-nav { margin-left: 0; }
+}
+
+/* ---------- print: clean paper output ---------- */
+
+@media print {
+  /* force the light palette even if the dark class is set */
+  html.theme-dark {
+    --ink: #111827;
+    --ink-soft: #4b5563;
+    --ink-faint: #9ca3af;
+    --line: #e5e7eb;
+    --acc: #9a5b3c;
+    --acc-2: #7c4527;
+    --grad: #9a5b3c;
+    --glass: #ffffff;
+    --glass-border: #e5e7eb;
+    --card: #ffffff;
+  }
+
+  .topbar, .bg-blobs, .cursor-light, .back-to-top,
+  .scroll-progress, .year-jump { display: none !important; }
+
+  body, html.theme-dark body { background: #fff; }
+  body::before, body::after { display: none; }
+
+  section { padding-top: 1.2em; }
+  header { margin-top: 1.2em; box-shadow: none; }
+
+  /* flat cards, and keep each entry on one page */
+  .edu-card, .ri-axis, .exp-card,
+  .wrapper .publications ol.bibliography li {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .exp-item, .edu-card { page-break-inside: avoid; }
+
+  a { color: var(--ink); }
+  .wrapper .publications ol.bibliography li .teaser { box-shadow: none; }
+}
+
+/* Sidebar name */
+header h1.name { color: var(--ink); font-weight: 700; }

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <title>{{ site.title }} | {{site.affiliation}}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      /* apply the saved theme before first paint to avoid a flash */
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark') document.documentElement.classList.add('theme-dark');
+          else if (t === 'light') document.documentElement.classList.add('theme-light');
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="description" content="{{ site.description }}">
+    {% if site.keywords %}<meta name="keywords" content="{{ site.keywords }}">{% endif %}
+    {% if site.canonical %}<link rel="canonical" href="{{ site.canonical }}"/>{% endif %}
+
+    <!-- Link previews (X / LinkedIn / Slack / WeChat) -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="{{ site.title }} | {{ site.affiliation }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:url" content="{{ site.canonical }}">
+    <meta property="og:image" content="{{ site.canonical }}assets/img/avatar.jpg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ site.title }} | {{ site.affiliation }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="{{ site.canonical }}assets/img/avatar.jpg">
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ site.title }}",
+      "alternateName": "{{ site.title_cn }}",
+      "url": "{{ site.canonical }}",
+      "image": "{{ site.canonical }}assets/img/avatar.jpg",
+      "jobTitle": "{{ site.position }}",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "{{ site.affiliation }}",
+        "url": "{{ site.affiliation_link }}"
+      },
+      "sameAs": [
+        "{{ site.google_scholar }}",
+        "{{ site.github_link }}",
+        "{{ site.linkedin }}",
+        "{{ site.twitter }}"
+      ]
+    }
+    </script>
+
+    <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
+    <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
+    <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+
+    {% if site.font == "Sans Serif" %}
+      <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
+    {% else %}
+      <link rel="stylesheet" href="./assets/css/font.css">
+    {% endif %}
+    {% if site.auto_dark_mode %}
+      <link rel="stylesheet" href="./assets/css/style.css?v=48">
+      <link rel="stylesheet" href="./assets/css/publications.css?v=48">
+    {% else %}
+      <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
+      <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
+    {% endif %}
+
+    <!-- Hover: decode the English name into the Chinese one (namescramble.js) -->
+    <style>
+      .name {
+        display: block;
+        cursor: default;
+        line-height: 1.2;
+        min-height: 1.2em;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+      }
+      /* the .cn span only carries the target text for the scramble script */
+      .name.has-cn .cn { display: none; }
+      .name .en { display: inline-block; min-height: 1.2em; }
+      .name .en.zh { font-family: "KaiTi","KaiTi_GB2312","Kaiti SC","STKaiti","DFKai-SB","BiauKai","AR PL KaitiM GB","AR PL UKai CN", serif; }
+    </style>
+  </head>
+
+  <body id="top">
+    <!-- Decorative gradient blobs (fixed, behind all content) -->
+    <div class="bg-blobs" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="blob b4"></div>
+    </div>
+    <div class="cursor-light" aria-hidden="true"></div>
+
+    <!-- Glassy fixed top bar with section tabs -->
+    <div class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#top">{{ site.title }}</a>
+        <nav class="site-nav">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="#about-me">About</a>
+          <a href="#news">News</a>
+          <a href="#selected-publications">Publications</a>
+          <a href="#experiences">Experiences</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color mode"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <header>
+        {% if site.avatar %}
+          <a class="image avatar"><img src="{{ site.avatar }}" alt="Portrait of {{ site.title }}" width="600" height="600" fetchpriority="high" /></a>
+        {% endif %}
+
+        {% if site.title_cn %}
+        <h1 class="name has-cn">
+          <span class="en">{{ site.title }}</span>
+          <span class="cn">{{ site.title_cn }}</span>
+        </h1>
+        {% else %}
+        <h1 class="name no-cn">
+          <span class="en">{{ site.title }}</span>
+        </h1>
+        {% endif %}
+
+        {% if site.position %}
+          <position style="font-size:1.10rem;">{{ site.position }}</position><br>
+        {% endif %}
+        {% if site.affiliation %}
+          <a href="{{ site.affiliation_link }}" rel="noopener"><autocolor>{{ site.affiliation }}</autocolor></a><br>
+        {% endif %}
+        {% if site.email %}<email>{{ site.email }}</email>{% endif %}
+
+        <br><br>
+        <div class="social-icons">
+          {% if site.google_scholar %}
+            <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
+              <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
+            </a>
+          {% endif %}
+          {% if site.cv_link %}
+            <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
+              <i class="ai ai-cv" style="font-size:1.3rem;"></i>
+            </a>
+          {% endif %}
+          {% if site.github_link %}
+            <a style="margin: 0 5px 0 0" href="{{ site.github_link }}"><i class="fab fa-github"></i></a>
+          {% endif %}
+          {% if site.linkedin %}
+            <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}"><i class="fab fa-linkedin"></i></a>
+          {% endif %}
+          {% if site.twitter %}
+            <a style="margin: 0 0 0 0" href="{{ site.twitter }}"><i class="fab fa-twitter"></i></a>
+          {% endif %}
+        </div>
+      </header>
+  
+      <section>
+        {{ content }}
+        <br>
+        {% if site.enable_footnote %}
+          <p style="margin-bottom:0;"><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
+        {% endif %}
+        <p class="site-copyright"><span id="visitors" style="visibility:hidden;"><span class="visitor-pill"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span id="visitor-count" class="visitor-count"></span>&nbsp;visitors</span></span><small>&copy; {{ site.time | date: "%Y" }} &middot; {{ site.title }} &middot; {{ site.affiliation }} &middot; Last Edited: {{ site.time | date: "%B %d, %Y" }}</small></p>
+      </section>
+
+      <footer></footer>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/scrollspy.js" | relative_url }}?v=7"></script>
+    <script src="{{ "/assets/js/counter.js" | relative_url }}?v=3"></script>
+    <script src="{{ "/assets/js/publications.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/typewriter.js" | relative_url }}?v=3"></script>
+    <script src="{{ "/assets/js/reveal.js" | relative_url }}?v=3"></script>
+    <script src="{{ "/assets/js/theme.js" | relative_url }}?v=2"></script>
+    <script src="{{ "/assets/js/cursorlight.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/progress.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/backtotop.js" | relative_url }}?v=2"></script>
+    <script src="{{ "/assets/js/namescramble.js" | relative_url }}?v=2"></script>
+  </body>
+</html>
