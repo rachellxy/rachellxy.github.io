@@ -1,1 +1,58 @@
-let toggleThemeSetting=()=>{let e=determineThemeSetting();setThemeSetting("system"==e?"light":"light"==e?"dark":"system")},setThemeSetting=e=>{localStorage.setItem("theme",e),document.documentElement.setAttribute("data-theme-setting",e),applyTheme()},applyTheme=()=>{let e=determineComputedTheme();transTheme(),setHighlight(e),setGiscusTheme(e),setSearchTheme(e),"undefined"!=typeof mermaid&&setMermaidTheme(e),"undefined"!=typeof Diff2HtmlUI&&setDiff2htmlTheme(e),"undefined"!=typeof echarts&&setEchartsTheme(e),"undefined"!=typeof vegaEmbed&&setVegaLiteTheme(e),document.documentElement.setAttribute("data-theme",e);let t=document.getElementsByTagName("table");for(let i=0;i<t.length;i++)"dark"==e?t[i].classList.add("table-dark"):t[i].classList.remove("table-dark");let i=document.getElementsByClassName("jupyter-notebook-iframe-container");for(let t=0;t<i.length;t++){let m=i[t].getElementsByTagName("iframe")[0].contentWindow.document.body;"dark"==e?(m.setAttribute("data-jp-theme-light","false"),m.setAttribute("data-jp-theme-name","JupyterLab Dark")):(m.setAttribute("data-jp-theme-light","true"),m.setAttribute("data-jp-theme-name","JupyterLab Light"))}"undefined"!=typeof medium_zoom&&medium_zoom.update({background:getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color")+"ee"})},setHighlight=e=>{"dark"==e?(document.getElementById("highlight_theme_light").media="none",document.getElementById("highlight_theme_dark").media=""):(document.getElementById("highlight_theme_dark").media="none",document.getElementById("highlight_theme_light").media="")},setGiscusTheme=e=>{function t(e){const t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:e},"https://giscus.app")}t({setConfig:{theme:e}})},addMermaidZoom=(e,t)=>{d3.selectAll(".mermaid svg").each(function(){var e=d3.select(this);e.html("<g>"+e.html()+"</g>");var t=e.select("g"),i=d3.zoom().on("zoom",function(e){t.attr("transform",e.transform)});e.call(i)}),t.disconnect()},setMermaidTheme=e=>{"light"==e&&(e="default"),document.querySelectorAll(".mermaid").forEach(e=>{let t=e.previousSibling.childNodes[0].innerHTML;e.removeAttribute("data-processed"),e.innerHTML=t}),mermaid.initialize({theme:e}),window.mermaid.init(undefined,document.querySelectorAll(".mermaid"));const t=document.querySelector(".mermaid svg");if(null!==t){const e={childList:!0};new MutationObserver(addMermaidZoom).observe(t,e)}},setDiff2htmlTheme=e=>{document.querySelectorAll(".diff2html").forEach(t=>{let i=t.previousSibling.childNodes[0].innerHTML;t.innerHTML="",new Diff2HtmlUI(t,i,{colorScheme:e,drawFileList:!0,highlight:!0,matching:"lines"}).draw()})},setEchartsTheme=e=>{document.querySelectorAll(".echarts").forEach(t=>{let i=t.previousSibling.childNodes[0].innerHTML;if(echarts.dispose(t),"dark"===e)var m=echarts.init(t,"dark-fresh-cut");else m=echarts.init(t);m.setOption(JSON.parse(i))})},setVegaLiteTheme=e=>{document.querySelectorAll(".vega-lite").forEach(t=>{let i=t.previousSibling.childNodes[0].innerHTML;t.innerHTML="","dark"===e?vegaEmbed(t,JSON.parse(i),{theme:"dark"}):vegaEmbed(t,JSON.parse(i))})},setSearchTheme=e=>{const t=document.querySelector("ninja-keys");t&&("dark"===e?t.classList.add("dark"):t.classList.remove("dark"))},transTheme=()=>{document.documentElement.classList.add("transition"),window.setTimeout(()=>{document.documentElement.classList.remove("transition")},500)},determineThemeSetting=()=>{let e=localStorage.getItem("theme");return"dark"!=e&&"light"!=e&&"system"!=e&&(e="system"),e},determineComputedTheme=()=>{let e=determineThemeSetting();if("system"==e){const e=window.matchMedia;return e&&e("(prefers-color-scheme: dark)").matches?"dark":"light"}return e},initTheme=()=>{let e=determineThemeSetting();setThemeSetting(e),document.addEventListener("DOMContentLoaded",function(){document.getElementById("light-toggle").addEventListener("click",function(){toggleThemeSetting()})}),window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",({matches:e})=>{applyTheme()})};
+// Day / night mode toggle. The early inline script in <head> applies the
+// stored theme class before first paint; this wires up the button.
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+
+  var MOON = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  var SUN = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+
+  function isDark() {
+    if (root.classList.contains('theme-dark')) return true;
+    if (root.classList.contains('theme-light')) return false;
+    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function refresh() {
+    btn.innerHTML = isDark() ? SUN : MOON;
+    btn.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  // Safari sometimes leaves fixed / composited layers (blobs, glass bars,
+  // body::before) painted with the old theme until the next scroll. Hiding
+  // the root for one synchronous layout pass rebuilds every layer.
+  function forceRepaint() {
+    var y = window.pageYOffset;
+    var x = window.pageXOffset;
+    root.style.display = 'none';
+    void root.offsetHeight;
+    root.style.display = '';
+    if (window.pageYOffset !== y || window.pageXOffset !== x) {
+      // restore instantly — html has scroll-behavior: smooth in CSS
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(x, y);
+      root.style.scrollBehavior = '';
+    }
+  }
+
+  function apply(mode) {
+    root.classList.remove('theme-dark', 'theme-light');
+    if (mode === 'dark' || mode === 'light') root.classList.add('theme-' + mode);
+    refresh();
+    forceRepaint();
+  }
+
+  btn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    apply(next);
+  });
+
+  // theme changed in another tab / page of the site
+  window.addEventListener('storage', function (ev) {
+    if (ev.key === 'theme') apply(ev.newValue);
+  });
+
+  refresh();
+})();
