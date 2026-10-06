@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-      /* apply the saved theme before first paint to avoid a flash */
+      /* apply the saved theme before first paint to avoid a flash; light unless the visitor chose dark */
       (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          if (t === 'dark') document.documentElement.classList.add('theme-dark');
-          else if (t === 'light') document.documentElement.classList.add('theme-light');
-        } catch (e) {}
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        document.documentElement.classList.add(t === 'dark' ? 'theme-dark' : 'theme-light');
       })();
     </script>
     <meta name="description" content="Personal homepage of Xinyu Li, a Ph.D. student at the Auton Lab, Carnegie Mellon University, working on LLM-based agents.">
@@ -251,13 +249,9 @@
 
 <li id="pub-hermes-learning-contextual-reasoning-unlocks-test-time-scaling">
 <div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    
-     
-    <abbr class="badge">arXiv 2026</abbr>
-    
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
+  
+  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 15px;">
+      <abbr class="badge badge-inline">arXiv 2026</abbr>
       <div class="title"><a href="https://arxiv.org/pdf/2609.38332">Hermes: Learning Contextual Reasoning Unlocks Test-Time Scaling</a></div>
       <div class="author"><strong>Xinyu Li<sup>*</sup></strong>, Mononito Goswami<sup>*</sup>, Hao Liu, Nikos Kanakaris, Langlin Huang, Prithwish Jana, Patrick Blöbaum, Purak Jain <span class="eq-contrib">(<sup>*</sup>Equal contribution)</span></div>
       <div class="periodical"><em>arXiv preprint arXiv:2609.38332, 2026.</em></div>
@@ -307,13 +301,9 @@
 
 <li id="pub-notes-to-self-can-llms-benefit-from-experiential-abstractions">
 <div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    
-     
-    <abbr class="badge">EMNLP 2026 Findings</abbr>
-    
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
+  
+  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 15px;">
+      <abbr class="badge badge-inline">EMNLP 2026 Findings</abbr>
       <div class="title"><a href="https://arxiv.org/pdf/2607.20372">Notes to Self: Can LLMs Benefit from Experiential Abstractions?</a></div>
       <div class="author">Chang Liu, <strong>Xinyu Li</strong>, Artur Dubrawski</div>
       <div class="periodical"><em>Findings of the Association for Computational Linguistics: <strong>EMNLP</strong>, 2026.</em></div>
@@ -364,13 +354,9 @@
 
 <li id="pub-from-aggregation-to-guidance-strategies-for-personalized-federated-fine-tuning-of-foundation-models">
 <div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    
-     
-    <abbr class="badge">UniReps 2025</abbr>
-    
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
+  
+  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 15px;">
+      <abbr class="badge badge-inline">UniReps 2025</abbr>
       <div class="title"><a href="https://openreview.net/pdf?id=wdYl0agN49">From Aggregation to Guidance: Strategies for Personalized Federated Fine-Tuning of Foundation Models</a></div>
       <div class="author">Mikołaj Piórczyński, Wojciech Łapacz, <strong>Xinyu Li</strong>, Chang Liu, Abby Turner, Artur Dubrawski</div>
       <div class="periodical"><em>UniReps: 3rd Edition of the Workshop on Unifying Representations in Neural Models, 2025.</em></div>
@@ -419,13 +405,9 @@
 
 <li id="pub-timeseriesgym-a-scalable-benchmark-for-time-series-machine-learning-engineering-agents">
 <div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    
-     
-    <abbr class="badge">arXiv 2025</abbr>
-    
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
+  
+  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 15px;">
+      <abbr class="badge badge-inline">arXiv 2025</abbr>
       <div class="title"><a href="https://arxiv.org/pdf/2505.13291">TimeSeriesGym: A Scalable Benchmark for (Time Series) Machine Learning Engineering Agents</a></div>
       <div class="author">Yifu Cai<sup>*</sup>, <strong>Xinyu Li<sup>*</sup></strong>, Mononito Goswami<sup>*</sup>, Michał Wiliński<sup>*</sup>, Gus Welter, Artur Dubrawski <span class="eq-contrib">(<sup>*</sup>Equal contribution)</span></div>
       <div class="periodical"><em>arXiv preprint arXiv:2505.13291, 2025.</em></div>
@@ -480,13 +462,9 @@
 
 <li id="pub-personalized-language-modeling-from-personalized-human-feedback">
 <div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    
-     
-    <abbr class="badge">NeurIPS 2024 AFM</abbr>
-    
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
+  
+  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 15px;">
+      <abbr class="badge badge-inline">NeurIPS 2024 AFM</abbr>
       <div class="title"><a href="https://arxiv.org/pdf/2402.05133">Personalized Language Modeling from Personalized Human Feedback</a></div>
       <div class="author"><strong>Xinyu Li</strong>, Ruiyang Zhou, Zachary C. Lipton, Liu Leqi</div>
       <div class="periodical"><em>NeurIPS 2024 Workshop on Adaptive Foundation Models, 2024.</em></div>
