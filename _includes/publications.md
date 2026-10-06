@@ -20,15 +20,16 @@
 
 <li id="pub-{{ link.title | slugify }}">
 <div class="pub-row">
+  {% if link.image %}
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    {% if link.image %} 
     <img src="{{ link.image }}" alt="{{ link.title }}" class="teaser img-fluid z-depth-1" loading="lazy" decoding="async"{% if link.image_w %} width="{{ link.image_w }}" height="{{ link.image_h }}"{% endif %}>
-    {% endif %}
     {% if link.conference_short %} 
     <abbr class="badge">{{ link.conference_short }}</abbr>
     {% endif %}
   </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
+  {% endif %}
+  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: {% if link.image %}20px{% else %}15px{% endif %};">
+      {% unless link.image %}{% if link.conference_short %}<abbr class="badge badge-inline">{{ link.conference_short }}</abbr>{% endif %}{% endunless %}
       <div class="title"><a href="{{ link.pdf }}">{{ link.title }}</a></div>
       <div class="author">{{ link.authors }}</div>
       <div class="periodical"><em>{{ link.conference }}</em></div>

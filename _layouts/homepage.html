@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-      /* apply the saved theme before first paint to avoid a flash */
+      /* apply the saved theme before first paint to avoid a flash; light unless the visitor chose dark */
       (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          if (t === 'dark') document.documentElement.classList.add('theme-dark');
-          else if (t === 'light') document.documentElement.classList.add('theme-light');
-        } catch (e) {}
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        document.documentElement.classList.add(t === 'dark' ? 'theme-dark' : 'theme-light');
       })();
     </script>
     <meta name="description" content="{{ site.description }}">

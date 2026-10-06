@@ -961,6 +961,23 @@ html.theme-dark a.ri-paper:hover {
   left: 28px;
 }
 
+/* Entries without a teaser image: the badge sits in the text column, above the title */
+.wrapper .publications ol.bibliography li .badge-inline {
+  display: inline-block;
+  position: static;
+  margin: 0 0 8px;
+  padding: 2px 12px;
+  background: var(--acc);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-bottom: none;
+  box-shadow: none;
+}
+
 /* Breathing room between the rows of each entry */
 .wrapper .publications ol.bibliography li .title {
   color: var(--ink);
