@@ -10,7 +10,7 @@ Hi there! I'm **Xinyu Li** <span class="wave" aria-hidden="true">👋</span> I a
 
 ## Research Interests
 
-My research focuses on making <span class="hl">AI agents</span> more accessible and useful in real-world applications through <span class="hl">evaluation</span> and <span class="hl">post-training</span> methods.
+My research focuses on making <span class="hl">AI agents</span> more <span class="hl">accessible</span> and <span class="hl">useful</span> in real-world applications through evaluation and post-training methods.
 
 {% assign p_hermes = site.data.publications.main | where_exp: "p", "p.title contains 'Hermes:'" | first %}
 {% assign p_notes = site.data.publications.main | where_exp: "p", "p.title contains 'Notes to Self'" | first %}
