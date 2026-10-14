@@ -1968,12 +1968,13 @@ html.theme-dark .publications ol.bibliography li .copy-bib {
   box-shadow: var(--shadow-lg);
 }
 
-.exp-role {
+/* company on top, position underneath */
+.exp-org {
   color: var(--ink);
   font-weight: 600;
 }
 
-.exp-org {
+.exp-role {
   color: var(--acc);
   font-size: 0.92rem;
   font-weight: 500;
@@ -2029,12 +2030,17 @@ html.theme-dark .exp-chips .chip {
 }
 
 /* per-logo sizing so both lockups feel the same visual weight */
-.exp-logo-chip img[alt=TikTok] {
-  height: 32px;
+.exp-logo-chip img[alt=AWS] {
+  height: 30px;
 }
 
-.exp-logo-chip img[alt="Tencent AI Lab"] {
-  height: 36px;
+.exp-logo-chip img[alt=Amazon] {
+  height: 24px;
+  margin-top: 6px;
+}
+
+.exp-logo-chip img[alt=Microsoft] {
+  height: 22px;
 }
 
 @media (prefers-color-scheme: dark) {
