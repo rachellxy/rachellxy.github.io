@@ -81,8 +81,8 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
     <span class="exp-dot"></span>
     <div class="exp-card">
       <div class="exp-info">
-        <div class="exp-role">Applied Scientist Intern</div>
         <div class="exp-org">Amazon Web Services (AWS)</div>
+        <div class="exp-role">Applied Scientist Intern</div>
         <div class="exp-chips">
           <span class="chip">📍 Seattle, WA, USA</span>
           <span class="chip">🗓️ May – Aug 2026</span>
@@ -90,14 +90,15 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
           <span class="chip">Mentor: <a href="https://scholar.google.com/citations?user=TgQ72t0AAAAJ&hl=en" target="_blank">Mononito Goswami</a></span>
         </div>
       </div>
+      <div class="exp-logo-chip"><img src="./assets/img/logos/aws.svg" alt="AWS" loading="lazy"></div>
     </div>
   </div>
   <div class="exp-item">
     <span class="exp-dot"></span>
     <div class="exp-card">
       <div class="exp-info">
-        <div class="exp-role">Applied Scientist Intern</div>
         <div class="exp-org">Amazon</div>
+        <div class="exp-role">Applied Scientist Intern</div>
         <div class="exp-chips">
           <span class="chip">📍 Palo Alto, CA, USA</span>
           <span class="chip">🗓️ May – Dec 2025</span>
@@ -105,14 +106,15 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
           <span class="chip">Mentor: <a href="https://scholar.google.com/citations?user=P9zFscUAAAAJ&hl=en" target="_blank">Mike Morais</a></span>
         </div>
       </div>
+      <div class="exp-logo-chip"><img src="./assets/img/logos/amazon.svg" alt="Amazon" loading="lazy"></div>
     </div>
   </div>
   <div class="exp-item">
     <span class="exp-dot"></span>
     <div class="exp-card">
       <div class="exp-info">
-        <div class="exp-role">Research Intern</div>
         <div class="exp-org">Microsoft Research</div>
+        <div class="exp-role">Research Intern</div>
         <div class="exp-chips">
           <span class="chip">📍 Cambridge, UK</span>
           <span class="chip">🗓️ Jun – Aug 2024</span>
@@ -120,6 +122,7 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
           <span class="chip">Mentor: <a href="https://scholar.google.com/citations?user=UT-RATkAAAAJ&hl=en" target="_blank">Daniel C. Castro</a></span>
         </div>
       </div>
+      <div class="exp-logo-chip"><img src="./assets/img/logos/microsoft.svg" alt="Microsoft" loading="lazy"></div>
     </div>
   </div>
 </div>
