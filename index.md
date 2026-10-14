@@ -56,21 +56,8 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
 
 ## News
 
-- <span class="news-date">Sep 2026</span> Our preprint "Hermes: Learning Contextual Reasoning Unlocks Test-Time Scaling" is out! Check out the [project page](./blog/2026/hermes.html).
-- <span class="news-date">May 2025</span> I start my Applied Scientist internship at Amazon in Palo Alto.
-- <span class="news-date">Oct 2024</span> Our [Personalized RLHF](https://arxiv.org/abs/2402.05133) work is accepted to [NeurIPS 2024 Workshop on Adaptive Foundation Models](https://adaptive-foundation-models.org/index.html).
-
-<details class="news-more" markdown="0">
-<summary>
-  <span class="nm-more">Show more</span>
-  <span class="nm-less">Show less</span>
-  <span class="nm-chevron" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</summary>
-<ul>
-<li><span class="news-date">Jun 2024</span> I give an invited talk on our <a href="https://arxiv.org/abs/2402.05133">Personalized RLHF</a> work at Mila RLHF reading group.</li>
-<li><span class="news-date">Jun 2024</span> I start my internship at the <a href="https://www.microsoft.com/en-us/research/group/biomedical-imaging/">Biomedical Imaging team</a> at Microsoft Research Cambridge.</li>
-</ul>
-</details>
+- <span class="news-date">Sep 2026</span> My AWS internship project, "Hermes: Learning Contextual Reasoning Unlocks Test-Time Scaling," is out! Check out the [project page](./blog/2026/hermes.html) and [paper](https://arxiv.org/abs/2609.38332).
+- <span class="news-date">Aug 2026</span> Our paper "Notes to Self: Can LLMs Benefit from Experiential Abstractions?" is accepted to Findings of EMNLP 2026.
 
 {% include_relative _includes/publications.md %}
 

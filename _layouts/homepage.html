@@ -79,21 +79,10 @@
       <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
 
-    <!-- Hover: decode the English name into the Chinese one (namescramble.js) -->
     <style>
-      .name {
-        display: block;
-        cursor: default;
-        line-height: 1.2;
-        min-height: 1.2em;
-        width: 100%;
-        text-align: center;
-        white-space: nowrap;
-      }
-      /* the .cn span only carries the target text for the scramble script */
-      .name.has-cn .cn { display: none; }
-      .name .en { display: inline-block; min-height: 1.2em; }
-      .name .en.zh { font-family: "KaiTi","KaiTi_GB2312","Kaiti SC","STKaiti","DFKai-SB","BiauKai","AR PL KaitiM GB","AR PL UKai CN", serif; }
+      .name { display: block; line-height: 1.2; width: 100%; text-align: center; }
+      .name .sep { margin: 0 0.35em; opacity: 0.45; font-weight: 400; }
+      .name .cn { font-family: "KaiTi","KaiTi_GB2312","Kaiti SC","STKaiti","DFKai-SB","BiauKai","AR PL KaitiM GB","AR PL UKai CN", serif; }
     </style>
   </head>
 
@@ -128,16 +117,7 @@
           <a class="image avatar"><img src="{{ site.avatar }}" alt="Portrait of {{ site.title }}" width="600" height="600" fetchpriority="high" /></a>
         {% endif %}
 
-        {% if site.title_cn %}
-        <h1 class="name has-cn">
-          <span class="en">{{ site.title }}</span>
-          <span class="cn">{{ site.title_cn }}</span>
-        </h1>
-        {% else %}
-        <h1 class="name no-cn">
-          <span class="en">{{ site.title }}</span>
-        </h1>
-        {% endif %}
+        <h1 class="name">{{ site.title }}{% if site.title_cn %}<span class="sep">|</span><span class="cn" lang="zh">{{ site.title_cn }}</span>{% endif %}</h1>
 
         {% if site.position %}
           <position style="font-size:1.10rem;">{{ site.position }}</position><br>
@@ -195,6 +175,5 @@
     <script src="{{ "/assets/js/cursorlight.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/progress.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/backtotop.js" | relative_url }}?v=2"></script>
-    <script src="{{ "/assets/js/namescramble.js" | relative_url }}?v=2"></script>
   </body>
 </html>
