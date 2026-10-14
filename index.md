@@ -4,13 +4,13 @@ layout: homepage
 
 ## About Me
 
-Hi there! I'm **Xinyu Li** <span class="wave" aria-hidden="true">👋</span> I am a Ph.D. student at the [Auton Lab](https://autonlab.org/) in the School of Computer Science at [Carnegie Mellon University](https://www.cmu.edu/), advised by Prof. [Artur Dubrawski](https://www.ri.cmu.edu/ri-faculty/artur-w-dubrawski/). Prior to my Ph.D., I obtained a B.S. in Computer Science (Information Security) from Shanghai Jiao Tong University and a Master of Information Systems Management (MISM) from Carnegie Mellon University.
+Hi there! I'm **Xinyu Li** <span class="wave" aria-hidden="true">👋</span> I am a Ph.D. candidate at the [Auton Lab](https://autonlab.org/) in the School of Computer Science at [Carnegie Mellon University](https://www.cmu.edu/), advised by Prof. [Artur Dubrawski](https://www.ri.cmu.edu/ri-faculty/artur-w-dubrawski/). Prior to my Ph.D., I obtained a B.S. in Computer Science (Information Security) from Shanghai Jiao Tong University and a Master of Information Systems Management (MISM) from Carnegie Mellon University.
 
 <p class="about-contact">Feel free to <a class="contact-link" href="mailto:xinyul2@andrew.cmu.edu">reach out</a> if you are interested in my research and would like to collaborate!</p>
 
 ## Research Interests
 
-My research focuses on <span class="hl">LLM-based agents</span>, particularly for <span class="hl">machine learning engineering</span>, and on making LLMs better suited for agentic use.
+My research focuses on making <span class="hl">AI agents</span> more accessible and useful in real-world applications through <span class="hl">evaluation</span> and <span class="hl">post-training</span> methods.
 
 {% assign p_hermes = site.data.publications.main | where_exp: "p", "p.title contains 'Hermes:'" | first %}
 {% assign p_notes = site.data.publications.main | where_exp: "p", "p.title contains 'Notes to Self'" | first %}
@@ -22,32 +22,32 @@ My research focuses on <span class="hl">LLM-based agents</span>, particularly fo
   <div class="ri-axis">
     <span class="ri-num">01</span>
     <div class="ri-axis-body">
-      <div class="ri-axis-title">Agents for ML engineering</div>
-      <div class="ri-axis-text">Benchmarking LLM agents on machine learning engineering tasks, and building agents that automate end-to-end ML engineering workflows.</div>
+      <div class="ri-axis-title">Evaluating the practical utility of agents</div>
+      <div class="ri-axis-text">Building realistic and scalable benchmarks that measure how well agents handle real-world engineering workflows.</div>
       <div class="ri-papers">
-        <a class="ri-paper" href="#pub-{{ p_tsgym.title | slugify }}">TimeSeriesGym<span class="ri-venue">arXiv'25</span></a>
+        <a class="ri-paper" href="#pub-{{ p_tsgym.title | slugify }}">TimeSeriesGym<span class="ri-venue">ICML'25 FMSD</span></a>
       </div>
     </div>
   </div>
   <div class="ri-axis">
     <span class="ri-num">02</span>
     <div class="ri-axis-body">
-      <div class="ri-axis-title">Reasoning beyond a single context</div>
-      <div class="ri-axis-text">Teaching LLMs to organize reasoning across many context windows and to reuse abstractions distilled from experience.</div>
+      <div class="ri-axis-title">Improving reasoning and personalization</div>
+      <div class="ri-axis-text">Improving reasoning and task performance through post-training, and adapting LLMs to individual users and heterogeneous tasks.</div>
       <div class="ri-papers">
-        <a class="ri-paper" href="#pub-{{ p_hermes.title | slugify }}">Hermes<span class="ri-venue">arXiv'26</span></a>
         <a class="ri-paper" href="#pub-{{ p_notes.title | slugify }}">Notes to Self<span class="ri-venue">EMNLP'26 Findings</span></a>
+        <a class="ri-paper" href="#pub-{{ p_prlhf.title | slugify }}">P-RLHF<span class="ri-venue">NeurIPS'24 AFM</span></a>
+        <a class="ri-paper" href="#pub-{{ p_pfl.title | slugify }}">PFL<span class="ri-venue">NeurIPS'25 UniReps</span></a>
       </div>
     </div>
   </div>
   <div class="ri-axis">
     <span class="ri-num">03</span>
     <div class="ri-axis-body">
-      <div class="ri-axis-title">Personalized and adaptive LLMs</div>
-      <div class="ri-axis-text">Adapting LLMs to individual users and heterogeneous tasks through personalized feedback and multi-task fine-tuning.</div>
+      <div class="ri-axis-title">Developing agentic capabilities</div>
+      <div class="ri-axis-text">Developing agentic capabilities that enable effective long-horizon reasoning across many context windows.</div>
       <div class="ri-papers">
-        <a class="ri-paper" href="#pub-{{ p_prlhf.title | slugify }}">P-RLHF<span class="ri-venue">NeurIPS'24 AFM</span></a>
-        <a class="ri-paper" href="#pub-{{ p_pfl.title | slugify }}">PFL for LLMs<span class="ri-venue">UniReps'25</span></a>
+        <a class="ri-paper" href="#pub-{{ p_hermes.title | slugify }}">Hermes<span class="ri-venue">NeurIPS'26 LCFM</span></a>
       </div>
     </div>
   </div>
@@ -82,10 +82,27 @@ My research focuses on <span class="hl">LLM-based agents</span>, particularly fo
     <div class="exp-card">
       <div class="exp-info">
         <div class="exp-role">Applied Scientist Intern</div>
-        <div class="exp-org">Amazon (AWS AI Labs)</div>
+        <div class="exp-org">Amazon Web Services (AWS)</div>
+        <div class="exp-chips">
+          <span class="chip">📍 Seattle, WA, USA</span>
+          <span class="chip">🗓️ May – Aug 2026</span>
+          <span class="chip">Manager: <a href="https://scholar.google.com/citations?user=Uz_5hUsAAAAJ&hl=en" target="_blank">Purak Jain</a></span>
+          <span class="chip">Mentor: <a href="https://scholar.google.com/citations?user=TgQ72t0AAAAJ&hl=en" target="_blank">Mononito Goswami</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="exp-item">
+    <span class="exp-dot"></span>
+    <div class="exp-card">
+      <div class="exp-info">
+        <div class="exp-role">Applied Scientist Intern</div>
+        <div class="exp-org">Amazon</div>
         <div class="exp-chips">
           <span class="chip">📍 Palo Alto, CA, USA</span>
-          <span class="chip">🗓️ Summer 2025</span>
+          <span class="chip">🗓️ May – Dec 2025</span>
+          <span class="chip">Manager: <a href="https://scholar.google.com/citations?user=zmdnXmMAAAAJ&hl=en" target="_blank">Rohit Patki</a></span>
+          <span class="chip">Mentor: <a href="https://scholar.google.com/citations?user=P9zFscUAAAAJ&hl=en" target="_blank">Mike Morais</a></span>
         </div>
       </div>
     </div>
@@ -95,10 +112,12 @@ My research focuses on <span class="hl">LLM-based agents</span>, particularly fo
     <div class="exp-card">
       <div class="exp-info">
         <div class="exp-role">Research Intern</div>
-        <div class="exp-org">Microsoft Research Cambridge, Biomedical Imaging</div>
+        <div class="exp-org">Microsoft Research</div>
         <div class="exp-chips">
           <span class="chip">📍 Cambridge, UK</span>
-          <span class="chip">🗓️ Summer 2024</span>
+          <span class="chip">🗓️ Jun – Aug 2024</span>
+          <span class="chip">Manager: <a href="https://scholar.google.com/citations?user=mvk_WocAAAAJ&hl=en" target="_blank">Shruthi Bannur</a></span>
+          <span class="chip">Mentor: <a href="https://scholar.google.com/citations?user=UT-RATkAAAAJ&hl=en" target="_blank">Daniel C. Castro</a></span>
         </div>
       </div>
     </div>

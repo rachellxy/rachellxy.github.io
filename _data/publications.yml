@@ -4,8 +4,8 @@ main:
   - title: "Hermes: Learning Contextual Reasoning Unlocks Test-Time Scaling"
     year: 2026
     authors: "<strong>Xinyu Li<sup>*</sup></strong>, Mononito Goswami<sup>*</sup>, Hao Liu, Nikos Kanakaris, Langlin Huang, Prithwish Jana, Patrick Blöbaum, Purak Jain <span class=\"eq-contrib\">(<sup>*</sup>Equal contribution)</span>"
-    conference_short: "arXiv 2026"
-    conference: "arXiv preprint arXiv:2609.38332, 2026."
+    conference_short: "NeurIPS 2026 LCFM"
+    conference: "NeurIPS 2026 Workshop on Long Context Foundation Models, 2026."
     pdf: "https://arxiv.org/pdf/2609.38332"
     page: "./blog/2026/hermes.html"
     abstract: |
@@ -18,12 +18,29 @@ main:
           year    = {2026}
       }
 
+  - title: "Mitigating Reward Hacking in Mathematical Reasoning Without Ground-Truth Labels"
+    year: 2026
+    authors: "Adam Mazur, <strong>Xinyu Li</strong>, Artur Dubrawski"
+    conference_short: "NeurIPS 2026 MATH-AI"
+    conference: "NeurIPS 2026 Workshop on Mathematical Reasoning and AI, 2026."
+    pdf: "https://openreview.net/pdf?id=wSQdImNKhX"
+    bibtex: |
+      @inproceedings{mazur2026mitigating,
+          title     = {Mitigating Reward Hacking in Mathematical Reasoning Without Ground-Truth Labels},
+          author    = {Mazur, Adam and Li, Xinyu and Dubrawski, Artur},
+          booktitle = {NeurIPS 2026 Workshop on Mathematical Reasoning and AI},
+          year      = {2026},
+          url       = {https://openreview.net/forum?id=wSQdImNKhX}
+      }
+
   - title: "Notes to Self: Can LLMs Benefit from Experiential Abstractions?"
     year: 2026
     authors: "Chang Liu, <strong>Xinyu Li</strong>, Artur Dubrawski"
     conference_short: "EMNLP 2026 Findings"
     conference: "Findings of the Association for Computational Linguistics: <strong>EMNLP</strong>, 2026."
     pdf: "https://arxiv.org/pdf/2607.20372"
+    code: "https://github.com/autonlab/Notes-to-self"
+    badge: "https://img.shields.io/github/stars/autonlab/Notes-to-self?style=social&label=Code+Stars"
     abstract: |
       Humans distill experience into reusable abstractions, e.g., strategies and cautionary reminders, and apply them to gradually solve problems more effectively. We study whether Large Language Models (LLMs) can similarly benefit from such experiential abstractions. From LLMs' solution traces on the MATH training set, a stronger teacher or the LLMs themselves extract natural-language abstractions into a retrievable library. We explore two usage modes: (1) inference-time retrieval and (2) reinforcement learning (RL) with abstraction-augmented training prompts. Experiential abstractions improve LLM performance on mathematical and logical reasoning benchmarks. Self-extracted abstractions match teacher-extracted ones, and our abstraction usage framework can transfer to other datasets and models. These findings suggest LLMs can extract and apply experiential abstractions much as humans leverage distilled experience.
     bibtex: |
@@ -37,7 +54,7 @@ main:
   - title: "From Aggregation to Guidance: Strategies for Personalized Federated Fine-Tuning of Foundation Models"
     year: 2025
     authors: "Mikołaj Piórczyński, Wojciech Łapacz, <strong>Xinyu Li</strong>, Chang Liu, Abby Turner, Artur Dubrawski"
-    conference_short: "UniReps 2025"
+    conference_short: "NeurIPS 2025 UniReps"
     conference: "UniReps: 3rd Edition of the Workshop on Unifying Representations in Neural Models, 2025."
     pdf: "https://openreview.net/pdf?id=wdYl0agN49"
     abstract: |
@@ -54,8 +71,8 @@ main:
   - title: "TimeSeriesGym: A Scalable Benchmark for (Time Series) Machine Learning Engineering Agents"
     year: 2025
     authors: "Yifu Cai<sup>*</sup>, <strong>Xinyu Li<sup>*</sup></strong>, Mononito Goswami<sup>*</sup>, Michał Wiliński<sup>*</sup>, Gus Welter, Artur Dubrawski <span class=\"eq-contrib\">(<sup>*</sup>Equal contribution)</span>"
-    conference_short: "arXiv 2025"
-    conference: "arXiv preprint arXiv:2505.13291, 2025."
+    conference_short: "ICML 2025 FMSD"
+    conference: "ICML 2025 Workshop on Foundation Models for Structured Data, 2025."
     pdf: "https://arxiv.org/pdf/2505.13291"
     code: "https://github.com/moment-timeseries-foundation-model/TimeSeriesGym"
     badge: "https://img.shields.io/github/stars/moment-timeseries-foundation-model/TimeSeriesGym?style=social&label=Code+Stars"
