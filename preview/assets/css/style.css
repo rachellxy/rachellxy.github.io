@@ -2060,6 +2060,9 @@ html.theme-dark .exp-chips .chip {
     align-items: flex-start;
     gap: 10px;
   }
+  .exp-info {
+    align-self: stretch;
+  }
   .exp-logo-chip {
     order: -1;
     padding: 6px 12px;
