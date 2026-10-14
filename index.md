@@ -22,8 +22,8 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
   <div class="ri-axis">
     <span class="ri-num">01</span>
     <div class="ri-axis-body">
-      <div class="ri-axis-title">Evaluating the practical utility of agents</div>
-      <div class="ri-axis-text">Building realistic and scalable benchmarks that measure how well agents handle real-world engineering workflows.</div>
+      <div class="ri-axis-title">Agent Evaluation</div>
+      <div class="ri-axis-text">Building realistic and scalable benchmarks for evaluating the practical utility of AI agents.</div>
       <div class="ri-papers">
         <a class="ri-paper" href="#pub-{{ p_tsgym.title | slugify }}">TimeSeriesGym<span class="ri-venue">ICML'25 FMSD</span></a>
       </div>
@@ -32,20 +32,20 @@ My research focuses on making <span class="hl">AI agents</span> more accessible 
   <div class="ri-axis">
     <span class="ri-num">02</span>
     <div class="ri-axis-body">
-      <div class="ri-axis-title">Improving reasoning and personalization</div>
-      <div class="ri-axis-text">Improving reasoning and task performance through post-training, and adapting LLMs to individual users and heterogeneous tasks.</div>
+      <div class="ri-axis-title">Reasoning &amp; Personalization</div>
+      <div class="ri-axis-text">Developing RL-based post-training methods to improve reasoning and adapt LLMs to diverse users and tasks.</div>
       <div class="ri-papers">
         <a class="ri-paper" href="#pub-{{ p_notes.title | slugify }}">Notes to Self<span class="ri-venue">EMNLP'26 Findings</span></a>
-        <a class="ri-paper" href="#pub-{{ p_prlhf.title | slugify }}">P-RLHF<span class="ri-venue">NeurIPS'24 AFM</span></a>
         <a class="ri-paper" href="#pub-{{ p_pfl.title | slugify }}">PFL<span class="ri-venue">NeurIPS'25 UniReps</span></a>
+        <a class="ri-paper" href="#pub-{{ p_prlhf.title | slugify }}">P-RLHF<span class="ri-venue">NeurIPS'24 AFM</span></a>
       </div>
     </div>
   </div>
   <div class="ri-axis">
     <span class="ri-num">03</span>
     <div class="ri-axis-body">
-      <div class="ri-axis-title">Developing agentic capabilities</div>
-      <div class="ri-axis-text">Developing agentic capabilities that enable effective long-horizon reasoning across many context windows.</div>
+      <div class="ri-axis-title">Agentic Capabilities</div>
+      <div class="ri-axis-text">Developing agentic harnesses and learning frameworks for scalable long-horizon reasoning.</div>
       <div class="ri-papers">
         <a class="ri-paper" href="#pub-{{ p_hermes.title | slugify }}">Hermes<span class="ri-venue">NeurIPS'26 LCFM</span></a>
       </div>
