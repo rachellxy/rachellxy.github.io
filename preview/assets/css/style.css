@@ -2344,4 +2344,10 @@ header h1.name {
   font-weight: 700;
 }
 
+/* GitHub star count inside the Code button (filled in by publications.js) */
+.code-stars:not(:empty) {
+  margin-left: 6px;
+  opacity: 0.75;
+}
+
 /*# sourceMappingURL=style.css.map */
