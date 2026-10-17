@@ -32,4 +32,30 @@
       }
     });
   }
+
+  // Star counts on Code buttons, fetched from GitHub in the visitor's browser.
+  // Any failure leaves the button as a plain "Code" link.
+  var codeBtns = document.querySelectorAll('.code-btn[data-repo]');
+  for (var k = 0; k < codeBtns.length; k++) {
+    (function (btn) {
+      var repo = btn.getAttribute('data-repo').replace(/\/+$/, '');
+      var key = 'stars:' + repo;
+      var show = function (n) {
+        if (typeof n !== 'number') return;
+        btn.querySelector('.code-stars').textContent = '\u2605 ' + n;
+      };
+      var cached = null;
+      try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+      if (cached !== null) { show(cached); return; }
+      if (!window.fetch) return;
+      fetch('https://api.github.com/repos/' + repo)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d) return;
+          show(d.stargazers_count);
+          try { sessionStorage.setItem(key, JSON.stringify(d.stargazers_count)); } catch (e) {}
+        })
+        .catch(function () {});
+    })(codeBtns[k]);
+  }
 })();

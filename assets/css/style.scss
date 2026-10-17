@@ -1483,3 +1483,7 @@ html.theme-dark::-webkit-scrollbar-thumb, html.theme-dark ::-webkit-scrollbar-th
 
 /* Sidebar name */
 header h1.name { color: var(--ink); font-weight: 700; }
+
+
+/* GitHub star count inside the Code button (filled in by publications.js) */
+.code-stars:not(:empty) { margin-left: 6px; opacity: 0.75; }
